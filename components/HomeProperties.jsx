@@ -1,11 +1,25 @@
 import Link from "next/link";
-
-import isEmpty from "lodash-es/isEmpty.js";
-import properties from "@/properties.json";
+import isEmpty from "lodash-es/isEmpty";
+import { URL } from "@/utils/constants";
 import PropertyCard from "@/components/PropertyCard";
-import { PROPERTIES } from "@/utils/constants";
 
-const HomeProperties = () => {
+const fetchProperties = async function () {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_DOMAIN}/properties`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data.");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+const HomeProperties = async () => {
+  const { properties } = await fetchProperties();
+
   const recentProperties = properties
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
@@ -29,7 +43,7 @@ const HomeProperties = () => {
       </section>
       <section className="m-auto max-w-lg my-10 px-6">
         <Link
-          href={PROPERTIES}
+          href={URL.PROPERTIES}
           className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
         >
           View All Properties

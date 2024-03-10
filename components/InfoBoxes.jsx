@@ -1,6 +1,5 @@
-import React from "react";
+import { URL } from "@/utils/constants";
 import InfoBox from "@/components/InfoBox";
-import { ADD_NEW_PROPERTY, PROPERTIES } from "@/utils/constants";
 
 const InfoBoxes = () => {
   return (
@@ -13,7 +12,7 @@ const InfoBoxes = () => {
             backgroundColor="bg-gray-100"
             buttonInfo={{
               text: "Browse Properties",
-              link: PROPERTIES,
+              link: URL.PROPERTIES,
               backgroundColor: "bg-black",
             }}
           >
@@ -26,7 +25,7 @@ const InfoBoxes = () => {
             backgroundColor="bg-blue-100"
             buttonInfo={{
               text: "Add Property",
-              link: ADD_NEW_PROPERTY,
+              link: URL.ADD_NEW_PROPERTY,
               backgroundColor: "bg-blue-500",
             }}
           >

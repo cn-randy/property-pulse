@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaBed,
   FaBath,
@@ -7,7 +6,7 @@ import {
   FaMapMarker,
 } from "react-icons/fa";
 import Image from "next/image";
-import { PROPERTIES } from "@/utils/constants";
+import { URL } from "@/utils/constants";
 
 const PropertyCard = ({ property }) => {
   const getRateDisplay = function () {
@@ -92,7 +91,7 @@ const PropertyCard = ({ property }) => {
             </span>
           </div>
           <a
-            href={`${PROPERTIES}/${property._id}`}
+            href={`${URL.PROPERTIES}/${property._id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
